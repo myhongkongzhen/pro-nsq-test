@@ -1,9 +1,9 @@
-package z.z.w.test.nsq;
+package z.z.w.test.nsq ;
 
-import ly.bit.nsq.NSQProducer;
+import ly.bit.nsq.NSQProducer ;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import org.slf4j.Logger ;
+import org.slf4j.LoggerFactory ;
 
 /**************************************************************************
  * <pre>
@@ -17,19 +17,20 @@ import org.slf4j.LoggerFactory;
  **************************************************************************/
 public class Producer
 {
-	final static Logger	logger	= LoggerFactory.getLogger( Producer.class );
+	final static Logger	logger	= LoggerFactory.getLogger( Producer.class ) ;
 	
-	public static void main( String[ ] args )
+	public static void main( String[] args )
 	{
-		NSQProducer producer = new NSQProducer( "http://101.200.188.159:4151", "testTopit" );
-		
-		for ( int i = 0; i < 100; i++ )
+		NSQProducer producer = new NSQProducer( "http://101.200.188.159:4151", "native_nsq_api_pub_test" ) ;
+//		int i = 0 ;
+//		while ( true )
+		for ( int i = 0 ; i < 1000 ; i++ )
 		{
-			String message = "{\"foo\":\"bar_" + i + "\"}";
-			logger.info( "{}", message );
-			producer.putAsync( message );
+			String message = "{\"foo\":\"bar_" + i++ + "\"}" ;
+			logger.info( "{}", message ) ;
+			producer.putAsync( message ) ;
 		}
 		
-//		producer.shutdown();
+		producer.shutdown() ;
 	}
 }

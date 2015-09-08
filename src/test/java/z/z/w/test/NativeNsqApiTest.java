@@ -27,7 +27,7 @@ public class NativeNsqApiTest
 	{
 		try
 		{
-			String path = "native_nsq_api_topic_create_test" ;
+//			String path = "native_nsq_api_topic_create_test" ;
 			String url = "http://101.200.188.159:4151/topics" ;
 			logger.info( "{}", HttpClientUtil.httpPost( url ) ) ; ;
 		}
@@ -68,7 +68,8 @@ public class NativeNsqApiTest
 	{
 		try
 		{
-			String url = "http://101.200.188.159:4151/stats?format=json" ;
+			String url = "http://101.200.188.159:4151/stats" ;
+//			String url = "http://101.200.188.159:4151/stats?format=json" ;
 			logger.info( "{}", HttpClientUtil.httpPost( url ) ) ; ;
 		}
 		catch ( Exception e )
